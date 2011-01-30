@@ -1,5 +1,7 @@
 ## Mapchat
+
 <img src="https://github.com/downloads/mapchat/mapchat/128.png" alt="Mapchat logo" title="Mapchat" />
+
 Chat with your friends, plan meetings, discuss events anywhere!
 
 http://mapchat.me/
