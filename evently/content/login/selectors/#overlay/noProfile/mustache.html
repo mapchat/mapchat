@@ -1,0 +1,12 @@
+<form>
+  <h3>Hello {{name}}!</h3>
+  Please setup your user profile.<br />
+  
+  <label for="email">Email (<em>for <a href="http://gravatar.com">Gravatar</a></em>)</label><br />
+  <input class="text" type="text" name="email" value="" /><br />
+  <label for="url">URL</label><br />
+  <input class="text" type="text" name="url" value="" /><br />
+  <br />
+  <input type="submit" value="Go &rarr;" class="submit">
+  <input type="hidden" name="userCtxName" value="{{name}}" id="userCtxName">
+</form>

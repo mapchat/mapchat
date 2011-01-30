@@ -1,0 +1,5 @@
+{
+  ".button-logout": {"click": ["doLogout"]},
+  ".button-editprofile": {"click": ["noProfile"]},
+  ".button-mentions": {"click": ["mentions-redirect"]}
+}

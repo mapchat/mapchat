@@ -1,0 +1,3 @@
+function() {
+  $.pathbinder.go('/mentions');
+}

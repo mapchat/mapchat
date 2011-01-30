@@ -1,0 +1,13 @@
+<div class="user-form">
+  <div class="avatar" >
+    {{#gravatar_url}}
+      <img width="70" height="70" src="http://www.gravatar.com/avatar/{{gravatar_url}}.jpg?s=70&d=identicon"/>
+    {{/gravatar_url}}
+  </div>  
+
+  <div class="greeting">That's your profile, {{name}}!</div>
+
+  <button class="button-mentions submit">mentions about you</button><br />
+  <button class="button-editprofile submit">edit profile</button><br />
+  <button class="button-logout submit">logout</button>
+</div>

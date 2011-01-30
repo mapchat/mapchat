@@ -1,0 +1,13 @@
+[
+  {"to": "index.html", "from": ""},
+  {"to": "sitemap.xml", "from": "sitemap.xml"},
+  {"to": "robots.txt", "from": "robots.txt"},
+  {"to":"opensearch.xml", "from":"opensearch.xml"},
+  {"to": "favicon.ico", "from": "favicon.ico"},
+  {"to": "js/*", "from": "js/*"},
+  {"to": "style/*", "from": "style/*"},
+  {"to": "images/*", "from": "images/*"},
+  {"to": "sounds/*", "from": "sounds/*"},
+  {"to": "vendor/*", "from": "vendor/*"},
+  {"to": "../../*", "from": "mapchat/*"}
+]

@@ -1,0 +1,1 @@
+function(event, params) {    $(this).trigger('search-query', params.query);    // Google analytics  _gaq.push(['_trackPageview', '#/search/' + params.query]);}

@@ -1,0 +1,23 @@
+<div id="conversation">
+  <div id="messages">
+  </div>
+  {{#submit_form}}
+  <form id="post">
+    <div class="text-holder">
+      <input maxlength="140" id="text" class="text" autocomplete="off" />
+    </div>
+    <div class="facebook-likeit">
+      <iframe src="http://www.facebook.com/plugins/like.php?href={{url}}&amp;layout=button_count&amp;show_faces=false&amp;width=120&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:120px; height:21px;" allowTransparency="true"></iframe>
+    </div>
+    <div class="twitter-button">
+      {{#twitter_sandbox}}
+        {{{twitter_code}}}
+      {{/twitter_sandbox}}
+    </div>
+    <input type="submit" value="send" class="submit" />
+    <div class="iconset sound"></div>
+    
+    <div class="clear"></div>
+  </form>
+  {{/submit_form}}
+</div>

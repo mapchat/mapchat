@@ -1,0 +1,23 @@
+{
+  "name": "MapChat",
+  "description": "Chat with you friends, discuss events, plan meetings - anywhere!",
+  "version": "1.0.1",
+  "app": {
+    "urls": [
+      "*://*.mapchat.me/"
+    ],
+    "launch": {
+      "web_url": "http://mapchat.me/"
+    }    
+  },
+  "icons": {
+    "128": "128.png",
+    "96": "96.png",
+    "64": "64.png"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "notifications",
+    "geolocation"
+  ]
+}
