@@ -7,12 +7,15 @@ Chat with your friends, plan meetings, discuss events anywhere!
 [http://mapchat.me/](http://mapchat.me/)
 
 ### Installation
-    $ git clone git://github.com/mapchat/mapchat.git && cd mapchat
-    $ couchapp push . http://username:password@somedomain.couchone.com/mapchat
-    $ cd _auth && couchapp push . http://username:password@somedomain.couchone.com/_users
+    $ git clone git://github.com/mapchat/mapchat.git && cd mapchat && ./install.sh
 
 Then visit your MapChat instance at:
 [http://somedomain.couchone.com/mapchat/_design/mapchat/_rewrite/](http://somedomain.couchone.com/mapchat/_design/mapchat/_rewrite/)
+
+### Manual Installation
+    $ git clone git://github.com/mapchat/mapchat.git && cd mapchat
+    $ couchapp push . http://username:password@somedomain.couchone.com/mapchat
+    $ cd _auth && couchapp push . http://username:password@somedomain.couchone.com/_users
 
 (Last action is needed to require users to use login with space symbols inside it)
 
