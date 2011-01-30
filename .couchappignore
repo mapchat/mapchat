@@ -1,0 +1,10 @@
+[
+  "README.md",
+  ".gitignore",
+  "_auth",
+  "_auth/",
+  "chromeapp",
+  "chromeapp/*",
+  "nodejs",
+  "nodejs/*"  
+]
