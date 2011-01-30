@@ -4,7 +4,7 @@
 
 Chat with your friends, plan meetings, discuss events anywhere!
 
-http://mapchat.me/
+[http://mapchat.me/](http://mapchat.me/)
 
 ### Installation
     $ git clone git://github.com/mapchat/mapchat.git && cd mapchat
