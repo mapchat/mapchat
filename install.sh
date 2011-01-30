@@ -1,5 +1,14 @@
 #!/bin/bash
 clear
+
+couchapp=`which couchapp 2>&1`
+ret=$?
+if [ $ret -ne 0 ] || ! [ -x $couchapp ]; then
+  echo "MapChat cannot be installed without couchapp." >&2
+  echo "Install couchapp first, and then try again." >&2
+  exit $ret
+fi
+
 echo "Installing MapChat on CouchOne instance" >&2
 echo "" >&2
 
