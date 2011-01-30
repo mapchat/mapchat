@@ -9,8 +9,12 @@ Chat with your friends, plan meetings, discuss events anywhere!
 ### Installation
     $ git clone git://github.com/mapchat/mapchat.git && cd mapchat
     $ couchapp push . http://username:password@somedomain.couchone.com/mapchat
+    $ cd _auth && couchapp push . http://username:password@somedomain.couchone.com/_users
+
 Then visit your MapChat instance at:
 [http://somedomain.couchone.com/mapchat/_design/mapchat/_rewrite/](http://somedomain.couchone.com/mapchat/_design/mapchat/_rewrite/)
+
+(Last action is needed to require users to use login with space symbols inside it)
 
 ### Using vhosts
 1. Visit your CouchDB instance configuration in futon.
