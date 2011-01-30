@@ -6,5 +6,5 @@
   "chromeapp",
   "chromeapp/*",
   "nodejs",
-  "nodejs/*"  
+  "nodejs/*"
 ]
