@@ -7,6 +7,12 @@ Chat with your friends, plan meetings, discuss events anywhere!
 [http://mapchat.me/](http://mapchat.me/)
 
 ### Installation
+
+There're two choices:
+
+* Replicate database http://install.mapchat.me/install to your local CouchDB instance
+* Install it on a CouchOne instance:
+
     $ git clone git://github.com/mapchat/mapchat.git && cd mapchat && ./install.sh
 
 Then visit your MapChat instance at:
