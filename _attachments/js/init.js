@@ -68,3 +68,5 @@ window.onload = function() {
     }
   }
 };
+
+if (window.alreadyLoaded) window.onload();

@@ -12,7 +12,7 @@ fi
 echo "Installing MapChat on CouchOne instance" >&2
 echo "" >&2
 
-read -p "Instance name (instname.couchone.com): " INSTANCE
+read -p "Instance name (\`instname\`.couchone.com): " INSTANCE
 read -p "Database name: " DB
 
 echo "" >&2
@@ -23,6 +23,8 @@ read -p "Password: " -s PASSWORD
 echo "" >&2
 echo "Starting installation" >&2
 echo "" >&2
+
+make all
 
 echo "Pushing couchapp..." >&2 \
 && echo "" >&2 \

@@ -1,10 +1,12 @@
 [
   "README.md",
   ".gitignore",
+  ".build",
   "_auth",
   "_auth/",
   "chromeapp",
   "chromeapp/*",
   "nodejs",
-  "nodejs/*"
+  "nodejs/*",
+  "compiler.jar"
 ]
