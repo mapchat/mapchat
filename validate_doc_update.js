@@ -1,3 +1,5 @@
+// This file is part of mapchat released under Apache License, Version 2.0.
+// See the NOTICE for more information.
 function (newDoc, oldDoc, userCtx, secObj) {
   var v = require("lib/validate").init(newDoc, oldDoc, userCtx, secObj);
 

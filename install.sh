@@ -24,12 +24,20 @@ echo "" >&2
 echo "Starting installation" >&2
 echo "" >&2
 
-make all
+couchapp=`which couchapp 2>&1`
+ret=$?
+if [ $ret -ne 0 ] || ! [ -x $couchapp ]; then
+  make all
+  DIR="."
+else
+  cake build
+  DIR="./.build/"
+fi
 
 echo "Pushing couchapp..." >&2 \
 && echo "" >&2 \
-&& couchapp push . http://$USER:$PASSWORD@$INSTANCE.couchone.com/$DB \
-&& cd _auth \
+&& couchapp push $DIR http://$USER:$PASSWORD@$INSTANCE.couchone.com/$DB \
+&& cd $DIR/_auth \
 && echo "" >&2 \
 && echo "Pushing username validation couchapp..." >&2 \
 && echo "" >&2 \

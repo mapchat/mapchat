@@ -36,4 +36,4 @@ Icons from:
 [http://www.iconfinder.com/search/1/?q=iconset:dortmund](http://www.iconfinder.com/search/1/?q=iconset:dortmund)
 
 (C) 2011 Fedor Indutny
-Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported LICENSE
+Mapchat is released under Apache License, Version 2.0.

@@ -71,17 +71,6 @@ h1 {
   background: transparent url(../images/iconset.png) no-repeat -1000px -1000px;
 }
 
-#cc {
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  z-index: 5;
-  display: block;
-  width: 79px;
-  height: 15px;
-  background-position: -224px 0;
-}
-
 #map {
   position: absolute;
   left: 0;

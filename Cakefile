@@ -1,3 +1,6 @@
+# This file is part of mapchat released under Apache License, Version 2.0.
+# See the NOTICE for more information.
+
 watch = require 'watch'
 step = require 'step'
 fs = require 'fs'
@@ -155,7 +158,7 @@ prepareDirs = (callback) ->
   exec "rm -rf #{__dirname}/.build && " +
        "mkdir -p #{__dirname}/.build && " +
        "cp -R #{__dirname}/* #{__dirname}/.build/ && " +
-       "cp #{__dirname}}/.couchappignore #{__dirname}/", callback
+       "cp #{__dirname}/.couchappignore #{__dirname}/.build/", callback
 
 wrapAnonymous = (files, callback) ->
   step ->
