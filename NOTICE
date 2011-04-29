@@ -1,35 +1,6 @@
-Friendpaste
+Mapchat
 
-2007-2011 (c) Benoît Chesneau <benoitc@e-engura.org>
+2010-2011 (c) Fedor Indutny <fedor@indutny.com>
 
-Friendpaste is released under Apache License, Version 2.0. See the
+Mapchat is released under Apache License, Version 2.0. See the
 LICENSE file for the complete license.
-
-
-Other copyrights available in the code:
-
-
-friendpaste/utils/html.py
--------------------------
-
-Copyright (c) 2002-2006, Mark Pilgrim, All rights reserved.
-
-from FeedParser <http://code.google.com/p/feedparser> 
-with some adaptation for friendpaste 
-
-
-friendpaste/utils/diff.py
--------------------------
-
-Some parts from Trac <http://trac.edgewall.org/wiki/TracLicense.>
-Copyright (C) 2004-2006 Edgewall Software
-Copyright (C) 2004-2006 Christopher Lenz <cmlenz@gmx.de>
-Copyright (C) 2008 Benoit Chesneau <benoitc@e-engura.org>
-
-static/js/src/utilities.js
---------------------------
-
-Copyright 2008,2009 by Benoît Chesneau <benoitc@e-engura.com>
-Copyright (C) 2007 Apple Inc.  All rights reserved.
-Copyright (C) 2005-2008 Sam Stephenson - Prototype JavaScript
-
