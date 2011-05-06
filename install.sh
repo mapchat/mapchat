@@ -9,10 +9,10 @@ if [ $ret -ne 0 ] || ! [ -x $couchapp ]; then
   exit $ret
 fi
 
-echo "Installing MapChat on CouchOne instance" >&2
+echo "Installing MapChat on CouchDB server" >&2
 echo "" >&2
 
-read -p "Instance name (\`instname\`.couchone.com): " INSTANCE
+read -p "Server url (mapchat.iriscouch.com): " SERVER
 read -p "Database name: " DB
 
 echo "" >&2
@@ -36,16 +36,16 @@ fi
 
 echo "Pushing couchapp..." >&2 \
 && echo "" >&2 \
-&& couchapp push $DIR http://$USER:$PASSWORD@$INSTANCE.couchone.com/$DB \
+&& couchapp push $DIR http://$USER:$PASSWORD@$SERVER/$DB \
 && cd $DIR/_auth \
 && echo "" >&2 \
 && echo "Pushing username validation couchapp..." >&2 \
 && echo "" >&2 \
-&& couchapp push . http://$USER:$PASSWORD@$INSTANCE.couchone.com/_users
+&& couchapp push . http://$USER:$PASSWORD@$SERVER/_users
 
 echo "" >&2
 echo "Installation finished" >&2
-echo "Visit http://$INSTANCE.couchone.com/$DB/_design/mapchat/_rewrite/ and start conversation on a MapChat!" >&2
+echo "Visit http://$SERVER/$DB/_design/mapchat/_rewrite/ and start conversation on a MapChat!" >&2
 echo "" >&2
 exit 0
 

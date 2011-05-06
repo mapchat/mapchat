@@ -30,11 +30,11 @@ function() {
     include_docs: true
   });
   
-  app.db.getDbProperty('_design/mapchat/_spatial/messages', {
+  app.db.getDbProperty('_design/mapchat/_spatial/_list/grouped/messages', {
     success: function(response) {
       onChange({
-        results: response.rows.map(function(row) {
-          return {doc: row.value};
+        results: response.map(function(row) {
+          return {doc: row};
         })
       }, true);
     },
