@@ -30,38 +30,21 @@ function() {
     include_docs: true
   });
   
-  var ne = bounds.getNorthEast(),
-      sw = bounds.getSouthWest();
-
-  if (ne.lng() < sw.lng()) {
-    // Flipped bounds
-
-    var boundsLeft = [sw.lat(), sw.lng(), ne.lat(), 180],
-        boundsRight = [sw.lat(), -180, ne.lat(), ne.lng()];
-
-    lookupBounds(boundsLeft.join(','));
-    lookupBounds(boundsRight.join(','));
-  } else {
-    lookupBounds(bounds.toUrlValue());
-  }
-
-  function lookupBounds(bounds) {
-    app.db.getDbProperty('_design/mapchat/_spatial/_list/grouped/messages', {
-      success: function(response) {
-        onChange({
-          results: response.map(function(row) {
-            return {doc: row};
-          })
-        }, true);
-      },
-      error: function(status, error, reason) {
-        $.error('Points delivery', 'Failed to get points in current viewport.\r\n' +
-                'Got server error: ' + (reason || ''));      
-      },
-      bbox: bounds,
-      plane_bounds: '-180,-90,180,90'
-    });
-  }
+  app.db.getDbProperty('_design/mapchat/_spatial/_list/grouped/messages', {
+    success: function(response) {
+      onChange({
+        results: response.map(function(row) {
+          return {doc: row};
+        })
+      }, true);
+    },
+    error: function(status, error, reason) {
+      $.error('Points delivery', 'Failed to get points in current viewport.\r\n' +
+              'Got server error: ' + (reason || ''));
+    },
+    bbox: bounds.toUrlValue(),
+    plane_bounds: '-90,-180,90,180'
+  });
   
   function onChange(response, bootstrap) {
     if (!response || !response.results) return;
@@ -91,7 +74,8 @@ function() {
         var point = points[id],
             marker = point.marker;
         
-        if (point.last_updated >= doc.created_at ||
+        if (point.last_updated == updated_at ||
+            point.last_updated >= doc.created_at ||
             updated_at >= doc.created_at) {
           return;
         }
@@ -125,10 +109,10 @@ function() {
         points[id] = {
           marker: marker,
           created_at: doc.created_at,
-          last_updated: doc.created_at
+          last_updated: updated_at || doc.created_at
         };
       }
-            
+      
     });
   }
     
