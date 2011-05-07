@@ -20,8 +20,8 @@ function() {
                 icon_url,
                 new google.maps.Size(32, 32, 'px', 'px'),
                 new google.maps.Point(304, 0)
-              );  
-  
+              );
+
   storage._changes && storage._changes.stop();
   
   storage._changes = storage.app.db.changes(storage.last_seq || 0, {
@@ -30,20 +30,38 @@ function() {
     include_docs: true
   });
   
-  app.db.getDbProperty('_design/mapchat/_spatial/_list/grouped/messages', {
-    success: function(response) {
-      onChange({
-        results: response.map(function(row) {
-          return {doc: row};
-        })
-      }, true);
-    },
-    error: function(status, error, reason) {
-      $.error('Points delivery', 'Failed to get points in current viewport.\r\n' +
-              'Got server error: ' + (reason || ''));      
-    },
-    bbox: bounds.toUrlValue()
-  });
+  var ne = bounds.getNorthEast(),
+      sw = bounds.getSouthWest();
+
+  if (ne.lng() < sw.lng()) {
+    // Flipped bounds
+
+    var boundsLeft = [sw.lat(), sw.lng(), ne.lat(), 180],
+        boundsRight = [sw.lat(), -180, ne.lat(), ne.lng()];
+
+    lookupBounds(boundsLeft.join(','));
+    lookupBounds(boundsRight.join(','));
+  } else {
+    lookupBounds(bounds.toUrlValue());
+  }
+
+  function lookupBounds(bounds) {
+    app.db.getDbProperty('_design/mapchat/_spatial/_list/grouped/messages', {
+      success: function(response) {
+        onChange({
+          results: response.map(function(row) {
+            return {doc: row};
+          })
+        }, true);
+      },
+      error: function(status, error, reason) {
+        $.error('Points delivery', 'Failed to get points in current viewport.\r\n' +
+                'Got server error: ' + (reason || ''));      
+      },
+      bbox: bounds,
+      plane_bounds: '-180,-90,180,90'
+    });
+  }
   
   function onChange(response, bootstrap) {
     if (!response || !response.results) return;
@@ -73,7 +91,8 @@ function() {
         var point = points[id],
             marker = point.marker;
         
-        if (point.last_updated == updated_at || updated_at >= doc.created_at) {
+        if (point.last_updated >= doc.created_at ||
+            updated_at >= doc.created_at) {
           return;
         }
         
@@ -100,13 +119,13 @@ function() {
 
         google.maps.event.addListener(marker, 'click', function() {
           $.pathbinder.go(['/point', doc.loc[0], doc.loc[1]].join('/'));
-          marker.setIcon(read_icon);        
+          marker.setIcon(read_icon);
         });
         
         points[id] = {
           marker: marker,
           created_at: doc.created_at,
-          last_update: doc.created_at
+          last_updated: doc.created_at
         };
       }
             
