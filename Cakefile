@@ -226,7 +226,7 @@ minimifyJavascript = (files, options) ->
                                       "terminated with: #{code}"
     else
       if buff
-        parse buff + '// Some comment'
+        parse buff + '// Input 13589\n'
 
       promise.emit 'end'
 
