@@ -13,7 +13,7 @@ function(e) {
   if (!text) return;
   
   // Disable fields
-  fields.addClass('disabled').attr('disabled', 'disabled');    
+  fields.addClass('disabled').prop('disabled', true);
   
   var userCtx = $$(window).userCtx,
       profile = $$(window).profile;
@@ -29,7 +29,7 @@ function(e) {
     
     function complete() {
       // Enable fields
-      fields.attr('disabled', null).removeClass('disabled');
+      fields.removeClass('disabled').prop('disabled', false);
       
       // Reset value
       text_field.val('');
@@ -37,11 +37,15 @@ function(e) {
     
     $$(window).app.db.saveDoc(doc, {
       update: 'mapchat/message',
-      success: complete,
+      success: function() {
+        complete();
+        _gaq && _gaq.push(['_trackEvent', 'message', 'posted']);
+      },
       error: function(status, error, reason) {
         $.error('Message delivery', 'Failed to send message.\r\n' +
                 'Got server error: ' + (reason || ''));
         complete();
+        _gaq && _gaq.push(['_trackEvent', 'message', 'failed']);
       }
     });
         

@@ -56,6 +56,17 @@ h1 {
     #messages {
       height: 200px;
     }
+
+  #ad {
+    display: none;
+  }
+}
+
+#ad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
 }
 
 #copyright {
@@ -86,7 +97,7 @@ h1 {
   top: 65px;
   bottom: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   background: rgba(255,255,255,0.8);
   /** by default it should be hidden */
   display: none;
