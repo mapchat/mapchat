@@ -297,9 +297,17 @@ h1 {
     div.twitter-button,
 #conversation
   #post
-    div.facebook-likeit {
+    div.facebook-likeit,
+#conversation
+  #post
+    div.gplus-button {
       float: left;
       margin: 7px 0 0 2px;
+    }
+#conversation
+  #post
+    div.gplus-button {
+      padding-top: 2px;
     }
 /**
 * fields and buttons styles

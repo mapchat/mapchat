@@ -48,4 +48,9 @@ function(event, options) {
   }
   
   options.insertMessage = insert;
+
+  gapi.plusone.render($('.g-plusone', this)[0], {
+    size: 'small',
+    href: '/?hash=' + location.hash.replace(/^#/, '')
+  })
 }
