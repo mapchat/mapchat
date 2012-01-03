@@ -113,7 +113,7 @@ task 'build', 'copy couchapp into .build directory and minimize all files', (opt
     preprocessFiles jsonFiles, (content) ->
       JSON.stringify JSON.parse content
     , @parallel()
-      
+
     return
   , (err) ->
     if err
@@ -212,7 +212,7 @@ minimifyJavascript = (files, options) ->
     return prev.concat ['--js', file]
   , args
   java = spawn 'java', args
- 
+
   buff = ''
   java.stdout.on 'data', (data) ->
     buff = parse buff + data
@@ -247,9 +247,9 @@ minimifyJavascript = (files, options) ->
             name: files[fileIndex++]
             content: compressed
           }
-      
+
       _buff[0]
-     
+
   promise
 
 flushMinimified = (promise, preprocess, callback) ->

@@ -2,7 +2,7 @@
 // See the NOTICE for more information.
 function() {
   $$(this).visible = true;
-  
+
   // Google analytics
   _gaq.push(['_trackPageview', '#/help']);
 }

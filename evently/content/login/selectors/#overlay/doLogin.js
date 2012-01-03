@@ -15,10 +15,10 @@ function(e, name, pass) {
     error: function(status, error, reason) {
       // Google analytics
       _gaq.push(['_trackEvent', 'login', 'error']);
-    
+
       $.error('Login', 'Login failed! Probably, incorrect username or password. ' +
                        '(Tech Reason:' + reason + ')');
       elem.trigger('endload');
     }
-  });      
+  });
 }

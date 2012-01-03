@@ -2,7 +2,7 @@
 // See the NOTICE for more information.
 function() {
   var that = $(this);
-  
+
   // Take some 'idle' to processor
   setTimeout(function() {
     that.trigger('scrollDown');

@@ -2,7 +2,7 @@
 // See the NOTICE for more information.
 function() {
   var elem = $(this);
-  
+
   elem.trigger('startload');
   $.couch.logout({
     success : function() {
@@ -14,7 +14,7 @@ function() {
     error: function(status, error, reason) {
       // Google analytics
       _gaq.push(['_trackEvent', 'logout', 'error']);
-    
+
       $.error('Logout', 'Logout failed! Reason:' + reason);
       elem.trigger('endload');
     }

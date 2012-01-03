@@ -3,9 +3,9 @@
 function(cb, overlay, params) {
   var loc = $$(this).loc,
       that = $(this);
-      
+
   that.trigger('startload');
-  
+
   $$(window).app.db.view('mapchat/mentions', {
     descending: true,
     startkey: [$$(window).userCtx.name, 'z'],
@@ -15,7 +15,7 @@ function(cb, overlay, params) {
       var messages = response.rows.reverse().map(function(row) {
         return row.value;
       });
-      
+
       cb(messages);
       that.trigger('endload');
     },

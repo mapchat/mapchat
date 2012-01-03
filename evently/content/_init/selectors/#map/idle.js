@@ -23,13 +23,13 @@ function() {
               );
 
   storage._changes && storage._changes.stop();
-  
+
   storage._changes = storage.app.db.changes(storage.last_seq || 0, {
     filter: 'mapchat/bbox',
     bbox: bounds.toUrlValue(),
     include_docs: true
   });
-  
+
   app.db.getDbProperty('_design/mapchat/_spatial/_list/grouped/messages', {
     success: function(response) {
       onChange({
@@ -45,12 +45,12 @@ function() {
     bbox: bounds.toUrlValue(),
     plane_bounds: '-90,-180,90,180'
   });
-  
+
   function onChange(response, bootstrap) {
     if (!response || !response.results) return;
-    
+
     if (response.last_seq) storage.last_seq = response.last_seq;
-    
+
     $.forIn(response.results, function(i, result) {
       var doc = result.doc,
           id = doc.loc.join('-'),
@@ -62,38 +62,38 @@ function() {
             text: doc.text
           },
           updated_at = ($$().get(event_id).updated_at || 0);
-      
+
       if (!bootstrap) {
         // Trigger point listeners if exists
         $(window).trigger('chat-message-' + event_id, event_doc);
       }
-      
+
       // If point exists - no need to create marker
       if (points[id]) {
         // Just animate it and return
         var point = points[id],
             marker = point.marker;
-        
+
         if (point.last_updated == updated_at ||
             point.last_updated >= doc.created_at ||
             updated_at >= doc.created_at) {
           return;
         }
-        
+
         point.created_at = doc.created_at;
         point.last_updated = updated_at;
-        
+
         if (!marker.getAnimation() && event_id !== $$window.current_point) {
-            
+
           marker.setAnimation(google.maps.Animation.BOUNCE);
           marker.setIcon(unread_icon);
-          
+
           setTimeout(function() {
             marker.setAnimation(null);
           }, 4000);
         }
       } else {
-        
+
         var is_fresh = doc.created_at > updated_at,
             marker = new google.maps.Marker({
               icon: is_fresh ? unread_icon : read_icon,
@@ -105,16 +105,16 @@ function() {
           $.pathbinder.go(['/point', doc.loc[0], doc.loc[1]].join('/'));
           marker.setIcon(read_icon);
         });
-        
+
         points[id] = {
           marker: marker,
           created_at: doc.created_at,
           last_updated: updated_at || doc.created_at
         };
       }
-      
+
     });
   }
-    
+
   storage._changes.onChange(onChange);
 }

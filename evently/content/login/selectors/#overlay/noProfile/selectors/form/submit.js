@@ -2,14 +2,14 @@
 // See the NOTICE for more information.
 function(event) {
   event.preventDefault();
-  
+
   var md5 = $$(this).app.require("vendor/couchapp/lib/md5");
-  
+
   // TODO this can be cleaned up with docForm?
   // it still needs the workflow to edit an existing profile
   var name = $("input[name=userCtxName]",this).val(),
       email = $("input[name=email]",this).val(),
-      newProfile = {    
+      newProfile = {
         url : $("input[name=url]",this).val()
       },
       rand = Math.random().toString(),
@@ -17,11 +17,11 @@ function(event) {
 
   // setup gravatar_url
   if (md5) {
-    newProfile.gravatar_url = md5.hex(email || rand);    
+    newProfile.gravatar_url = md5.hex(email || rand);
   }
-  
+
   widget.trigger('startload');
-  
+
   // store the user profile on the user account document
   $.couch.userDb(function(db) {
     var userDocId = "org.couchdb.user:"+name;
@@ -46,6 +46,6 @@ function(event) {
       }
     });
   });
-  
+
   return false;
 }

@@ -5,10 +5,10 @@ function() {
       help = $('#help', that);
 
   // Calculate desired height
-  function adaptHeight() {        
+  function adaptHeight() {
     help.hide().css('height', $(window).height() - 100).show();
   }
-  
+
   $(window).resize(adaptHeight);
   adaptHeight();
 

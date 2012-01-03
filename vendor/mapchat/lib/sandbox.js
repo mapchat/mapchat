@@ -41,7 +41,7 @@ exports.jsonp = function(url, callback) {
       callback: callback
     });
   }
-  
+
   var callbackEvent = 'jsonp-' + Math.floor(Math.random() * 1E9),
       receiver = function(e) {
         try {
@@ -49,10 +49,10 @@ exports.jsonp = function(url, callback) {
         } catch (e) {
           $.log('Sandboxed JSONP parse error!', e.toString(), e.data);
           return;
-        }        
-        
+        }
+
         if (!data || data.callbackEvent !== callbackEvent) return;
-        
+
         window.removeEventListener('message', receiver, false);
         iframe.remove();
         callback(data.response);
@@ -79,6 +79,6 @@ exports.jsonp = function(url, callback) {
     encodeURIComponent(html),
     '" style="display: none" />'
   ].join('')).appendTo('body');
-  
+
   return iframe;
 };

@@ -2,6 +2,6 @@
 // See the NOTICE for more information.
 function() {
   $(this).html('').hide();
-  
+
   $$(this).visible = false;
 }

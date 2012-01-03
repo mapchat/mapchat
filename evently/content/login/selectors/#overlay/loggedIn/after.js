@@ -3,12 +3,12 @@
 function(e, r) {
   $$(this).userCtx = r.userCtx;
   $$(this).info = r.info;
-  
+
   var userCtx = r.userCtx,
       widget = $(this),
       db = $.couch.db(r.info.authentication_db),
       userDocId = "org.couchdb.user:" + userCtx.name;
-      
+
   db.openDoc(userDocId, {
     success : function(userDoc) {
       var profile = $$(window).profile = userDoc["couch.app.profile"];

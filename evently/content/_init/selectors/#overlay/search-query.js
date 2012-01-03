@@ -3,12 +3,12 @@
 function(event, text) {
   var that = $(this);
   $.pathbinder.go('/');
-  
+
   if (/^@/.test(text)) {
     // Search by username
-        
-    that.trigger('startload');    
-    
+
+    that.trigger('startload');
+
     $$(window).app.db.view('mapchat/messages_by_author', {
       descending: true,
       startkey: [text.substr(1), 'z'],
@@ -25,14 +25,14 @@ function(event, text) {
         that.trigger('endload');
       }
     });
-    
+
     return;
   }
-  
+
   // Otherwise search by location
-  
+
   var query = {address: text, language: "en"};
-  
+
   $$(window).geo.geocode(query, function (response, status) {
 
     if (status === google.maps.GeocoderStatus.OK &&
