@@ -11,7 +11,7 @@ function() {
       mapTypeControl: false,
       streetViewControl: false,
       disableDoubleClickZoom: true,
-      zoom: 8
+      zoom: 16
     });
 
     map.mapTypes.set("OSM", new google.maps.ImageMapType({

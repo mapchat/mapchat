@@ -19,6 +19,7 @@ function(self, params) {
 
   if (oldCenter.lat() != loc[0] || oldCenter.lng() != loc[1]) {
     map.setCenter(new google.maps.LatLng(loc[0], loc[1]));
+    map.setZoom(16);
   }
 
   // Google analytics
