@@ -26,6 +26,7 @@ function() {
         player.play();
       }
     } catch (e) {
+      window.console && window.console.log(e);
     }
 
     document.title = 'MapChat - New messages';
